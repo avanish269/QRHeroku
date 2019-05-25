@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+    <meta name="author" content="avanish269">
+    <title>Home</title>
+    <script type="text/javascript" src="..\js\instascan.min.js"></script>
+    <script type="text/javascript" src="..\js\vue.min.js"></script>
+    <script type="text/javascript" src="..\js\adapter.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="..\css\qrscanner.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="listeditems">
+        <section class="listofcameras">
+          <h2>Select Camera Here</h2>
+          <ul>
+            <li v-if="cameras.length===0" class="empty">No cameras found on the device</li>
+            <li v-for="cam in cameras">
+              <span v-if="cam.id==activeCameraId" :title="formatName(cam.name)" class="active">{{ formatName(cam.name) }}</span>
+              <span v-if="cam.id!=activeCameraId" :title="formatName(cam.name)">
+                <a @click.stop="selectCamera(cam)">{{ formatName(cam.name) }}</a>
+              </span>
+            </li>
+          </ul>
+        </section>
+        <section class="listofscans">
+          <h2>Scan Data(Testing Only)</h2>
+          <ul v-if="scans.length===0">
+            <li class="empty">No scans</li>
+          </ul>
+          <transition-group name="scan" tag="ul">
+            <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{scan.content}}</li>
+          </transition-group>
+        </section>
+      </div>
+      <div class="precon">
+        <video id="pre" autoplay="autoplay" class="active"></video>
+      </div>
+      <script type="text/javascript" src="..\js\qrscanner.js"></script>
+  </body>
+</html>
