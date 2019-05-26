@@ -13,7 +13,7 @@ body,html{
 }
 .listeditems{
   background: #A9A9A9;
-  min-width: 25px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
