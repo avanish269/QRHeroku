@@ -8,6 +8,29 @@ var app=new Vue({
   },
   mounted:function(){
     var self=this;
+    var isMobile={
+      Android: function(){
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function(){
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function(){
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function(){
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
+    if(isMobile.any()){
+      alert('Mobile');
+    }
     self.scanner=new Instascan.Scanner({video:document.getElementById("pre"),scanPeriod:5});
     self.scanner.addListener('scan',function(content,image){
       self.scans.unshift({date:+(Date.now()), content:content});
