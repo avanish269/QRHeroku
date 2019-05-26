@@ -36,7 +36,7 @@ var app=new Vue({
       self.cameras=cameras;
       if(cameras.length>0){
         var i=0;
-        if(isMobile.Android()){
+        if(isMobile.Android() || isMobile.iOS()){
           i=1;
         }
         self.activeCameraId=cameras[i].id;
