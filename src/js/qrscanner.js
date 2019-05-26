@@ -28,7 +28,7 @@ var app=new Vue({
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
       }
     };
-    self.scanner=new Instascan.Scanner({video:document.getElementById("pre"),scanPeriod:5});
+    self.scanner=new Instascan.Scanner({video:document.getElementById("pre"),mirror:false,scanPeriod:5});
     self.scanner.addListener('scan',function(content,image){
       self.scans.unshift({date:+(Date.now()), content:content});
     });
