@@ -38,6 +38,9 @@ var app=new Vue({
       if(!isNaN(qrcontent)){
         x=parseInt(qrcontent);
       }
+      else{
+        x=60606060;
+      }
       if(isNaN(x)){
         alert("Invalid Data! Scan another qr code");
       }
