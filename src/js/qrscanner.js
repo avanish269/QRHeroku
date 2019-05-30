@@ -71,7 +71,7 @@ var app=new Vue({
       self.cameras=cameras;
       if(cameras.length>0){
         var i=0;
-        if(isMobile.Android() || isMobile.iOS()){
+        if(isMobile.Android() || isMobile.iOS() || isMobile.any()){
           i=1;
           self.scanner.mirror=false;
         }
