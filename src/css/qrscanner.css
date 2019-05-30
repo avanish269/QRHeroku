@@ -18,16 +18,6 @@ body,html{
   flex-direction: column;
   justify-content: flex-start;
   overflow: auto;
-  font-weight: normal;
-  font-size: 1.0rem;
-  padding: 10px;
-  margin: 0;
-  list-style-type: none;
-  line-height: 175%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-wrap: none;
-  text-overflow: ellipsis;
 }
 .precon{
   flex-direction: column;
