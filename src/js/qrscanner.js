@@ -146,10 +146,10 @@ var app=new Vue({
           alert(x3);
           alert(x4);
           alert("Valid Data");
-          var url_string = window.location.href; //window.location.href
-          var url = new URL(url_string);
-          var brad = url.searchParams.get("d");
-          alert(brad);
+//          var url_string = window.location.href; //window.location.href
+//         var url = new URL(url_string);
+//          var brad = url.searchParams.get("d");
+          alert("brad");
           self.scanner.stop();
           location.href="https://www.google.com";
         }
