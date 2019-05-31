@@ -88,50 +88,7 @@ var app=new Vue({
         }
     self.scanner=new Instascan.Scanner({video:document.getElementById("pre"),scanPeriod:1});
     self.scanner.addListener('scan',function(content,image){
-      self.scans.unshift({date:+(Date.now()), content:content});
-      function GetDir(ini,fin){
-        var ini_local = ini % 10000;
-        var ini_local_x = ini_local % 100;
-        var ini_local_y = Math.floor(ini_local / 100);
-        var ini_previous = Math.floor(ini/10000);
-        var ini_previous_x = ini_previous % 100;
-        var ini_previous_y = Math.floor(ini_previous / 100);
-        var fin_x = fin % 100;
-        var fin_y = Math.floor(fin/100);
-        //U - turn
-        if(fin_x == ini_previous_x && fin_y == ini_previous_y){
-          return 1;
-        }
-        //destination reached
-        if(fin_x == ini_local_x && fin_y == ini_local_y){
-          return 0;
-        }
-        //if horizontal
-        if(ini_local_y == ini_previous_y){
-          if(fin_y == ini_local_y){
-            return 4;
-          }
-          if( (ini_local_x - ini_previous_x)*(fin_y - ini_local_y) < 0 ){
-            return 3;
-          }
-          if( (ini_local_x - ini_previous_x)*(fin_y - ini_local_y) > 0 ){
-            return 2;
-          }
-        }
-        //if vertical
-        if(ini_local_x == ini_previous_x){
-          if(fin_x == ini_local_x){
-            return 4;
-          }
-          if( (ini_local_y - ini_previous_y)*(fin_x - ini_local_x) < 0 ){
-            return 3;
-          }
-          if( (ini_local_y - ini_previous_y)*(fin_x - ini_local_x) > 0 ){
-            return 2;
-          }
-        }
-        return 0;
-      }
+    self.scans.unshift({date:+(Date.now()), content:content});
       qrcontent=content;
       if(!isNaN(qrcontent)){
         x=parseInt(qrcontent);
