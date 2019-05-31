@@ -160,10 +160,11 @@ var app=new Vue({
           var url_string = window.location.href; //window.location.href
           var url = new URL(url_string);
           var brad = url.searchParams.get("d");
-          alert(brad);
+          //alert(brad);
           alert(GetDir(x,brad));
           self.scanner.stop();
-          location.href="https://www.google.com";
+          var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,brad);
+          location.href=wr;
         }
         else{
           alert("Invalid Data! Scan another qr code");
