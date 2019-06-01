@@ -82,6 +82,7 @@ function BFS(pred, dist){
   while(queue.length != 0){
     var u = queue.shift();    //equivalent to pop
     var inde = find(u,cords);
+    alert(inde);
     o++;
     for(var b=0;b < connected_nodes[inde].length; b++){
       if(length(u,connected_nodes[inde][b])+dist[find(u,cords)]<dist[find(connected_nodes[inde][b],cords)] ){
