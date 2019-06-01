@@ -118,9 +118,10 @@ var app=new Vue({
           var url = new URL(url_string);
           var brad = url.searchParams.get("d");
           //alert(brad);
-          alert(GetDir(x,brad));
+          var next_node = Submit(x % 10000,brad)
+          alert(GetDir(x,next_node));
           self.scanner.stop();
-          var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,brad);
+          var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,next_node);
           location.href=wr;
         }
         else{
