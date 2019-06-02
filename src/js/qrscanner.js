@@ -90,19 +90,6 @@ var app=new Vue({
     self.scanner.addListener('scan',function(content,image){
     self.scans.unshift({date:+(Date.now()), content:content});
       qrcontent=content;
-      var cords = [];
-      var connected_nodes = [];
-      for (var temp = 0; temp < 3600 ; temp++) {
-           connected_nodes[temp] = [];
-      }
-      // var tr = '<?php echo $row['JSON_string'] ;?>';
-      var tr =  '{"cords":[{"value":5504,"connected_nodes":[4604,5513],"Tags":[],"name":"Entry","description":""},{"value":4604,"connected_nodes":[3504,5504,4613],"Tags":[],"name":"","description":""},{"value":3504,"connected_nodes":[4604,3513,2604],"Tags":[],"name":"","description":""},{"value":2604,"connected_nodes":[2613,3504,1704],"Tags":[],"name":"","description":""},{"value":1704,"connected_nodes":[2604,1713],"Tags":[],"name":"","description":""},{"value":1713,"connected_nodes":[2613,1704,1726,1013],"Tags":[],"name":"","description":""},{"value":2613,"connected_nodes":[2604,1713,3513],"Tags":[],"name":"","description":""},{"value":3513,"connected_nodes":[2613,3504,4613,3526],"Tags":[],"name":"Mid6","description":""},{"value":4613,"connected_nodes":[4604,5513,3513,4639],"Tags":[],"name":"","description":""},{"value":5513,"connected_nodes":[5504,4613],"Tags":[],"name":"","description":""},{"value":2626,"connected_nodes":[3526,1726,2639],"Tags":[],"name":"Mid3","description":""},{"value":2639,"connected_nodes":[2626,4639],"Tags":[],"name":"Mid1","description":""},{"value":1726,"connected_nodes":[1713,2626,1739],"Tags":[],"name":"","description":""},{"value":3526,"connected_nodes":[3513,2626],"Tags":[],"name":"","description":""},{"value":4639,"connected_nodes":[2639,4613],"Tags":[],"name":"","description":""},{"value":2651,"connected_nodes":[2659,1751],"Tags":[],"name":"","description":""},{"value":2659,"connected_nodes":[2651,559],"Tags":[],"name":"Mid2","description":""},{"value":559,"connected_nodes":[2659,551],"Tags":[],"name":"","description":""},{"value":551,"connected_nodes":[1751,559,513],"Tags":[],"name":"Mid5","description":""},{"value":1013,"connected_nodes":[1713],"Tags":[],"name":"Mid4","description":""},{"value":1004,"connected_nodes":[504],"Tags":[],"name":"Exit","description":""},{"value":504,"connected_nodes":[1004,513],"Tags":[],"name":"","description":""},{"value":513,"connected_nodes":[551,504],"Tags":[],"name":"","description":""},{"value":1739,"connected_nodes":[1726,1751],"Tags":[],"name":"","description":""},{"value":1751,"connected_nodes":[1739,2651,551],"Tags":[],"name":"","description":""}]}';
-      //alert(tr);
-      var src_tag,dest_tag;
-      var src_bool = false,dest_bool = false;
-      var src = -1,dest = -1;
-      var shortest_path_var = [];
-
       if(!isNaN(qrcontent)){
         x=parseInt(qrcontent);
       }
@@ -131,10 +118,9 @@ var app=new Vue({
           var url = new URL(url_string);
           var brad = url.searchParams.get("d");
           //alert(brad);
-          var next_node = Submit(x % 10000,brad)
-          alert(GetDir(x,next_node));
+          alert(GetDir(x,brad));
           self.scanner.stop();
-          var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,next_node);
+          var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,brad);
           location.href=wr;
         }
         else{
