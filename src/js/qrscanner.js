@@ -115,9 +115,9 @@ self.scanner.addListener('scan',function(content,image){
       //alert(brad);
       var qrr = Submit(x%10000,brad);
       alert(qrr);
-      alert(GetDir(x,brad));
+      alert(GetDir(x,qrr));
       self.scanner.stop();
-      var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,brad);
+      var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,qrr);
       location.href=wr;
     }
     else{
