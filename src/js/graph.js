@@ -11,6 +11,7 @@ $row = mysqli_fetch_assoc($result);
 ?>*/
 var cords = [];
 var connected_nodes = [];
+var path = [];
 for (var temp = 0; temp < 3600 ; temp++) {
     connected_nodes[temp] = [];
 }
@@ -28,7 +29,6 @@ function shortest_path(){
     alert("selected nodes are not connected");
     return;
    }
-   var path = [];
    var crawl = dest;
    path.push(crawl);
    var ai = 1;
