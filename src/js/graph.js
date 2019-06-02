@@ -121,7 +121,6 @@ function make_path(x,y){
     }
 }
 function Submit(a,b){
- reset();
  alert(tr);
 // src_tag = a;
 // dest_tag = b;
