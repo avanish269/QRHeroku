@@ -113,6 +113,8 @@ self.scanner.addListener('scan',function(content,image){
       var url = new URL(url_string);
       var brad = url.searchParams.get("d");
       //alert(brad);
+      var qrr = Submit(x%10000,brad);
+      alert(qrr);
       alert(GetDir(x,brad));
       self.scanner.stop();
       var wr = "https://testarjs12.herokuapp.com/?c=" + GetDir(x,brad);
