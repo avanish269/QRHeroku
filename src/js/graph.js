@@ -122,6 +122,7 @@ function make_path(x,y){
 }
 function Submit(a,b){
  reset();
+ alert(tr);
 // src_tag = a;
 // dest_tag = b;
  var obj = JSON.parse(tr);
@@ -133,6 +134,8 @@ function Submit(a,b){
     connected_nodes[b][c] = obj.cords[b].connected_nodes[c];
   }
  }
+ alert(a);
+ alert(b);
  console.log(src+" "+dest);
  shortest_path();
  var llen = path.length - 2;
